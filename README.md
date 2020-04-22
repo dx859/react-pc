@@ -1,44 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# react pc 端的模板
 
-## Available Scripts
+包含 react, react-redux, react-router-dom, antd
 
-In the project directory, you can run:
+使用 create-react-app 生成，[点击查看文档](https://create-react-app.dev/)
 
-### `yarn start`
+使用 redux 官方推出得[@reduxjs/toolkit](https://redux-toolkit.js.org/)工具
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# 代码格式规范
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+使用 prettier 规范格式即可
 
-### `yarn test`
+## vscode 配置：
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. 安装插件 Prettier - Code formatter
+2. ctrl + p 输入 `setting` 打开工作区设置
+3. 搜索 `format on save` 并勾选
+4. 选择一个 js 文件 ctrl + p 输入 `format document`
+5. 选择`格式化文档，方法是...`
+6. 选择 Prettier - Code formatter
 
-### `yarn build`
+这样即可保存的时候使用 prettier 格式化代码
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## webstorm 配置：
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+高版本 webstorm 自带 prettier, 格式化快捷键为 ctrl + shift + alt + p
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. 打开 File -> Setting
+2. 搜索 `file watchers`(Tools -> File Watchers)
+3. 选择 file watchers 点击右侧 + 图标
+4. 选择 Prettier 即可
 
-### `yarn eject`
+> 注意配置 prettier 应用程序路径地址，以及文件类型
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# 关于样式
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+在文件 src/modifyVars 可以配置全局的 less 变量
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+antd 皮肤变量可以在此配置，同实自己所写的 less 文件也可使用其中的变量
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+less 文件默认为 css modules，如果想写非 css modules 在 less 文件加入 global 即可。eg:
 
-## Learn More
+```less
+:global {
+  .app {
+    color: @primary-color;
+  }
+}
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# 如何换肤
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+考虑一些项目需要动态换肤得问题，即要改变 antd primary 得值
+可以引入组件 AntResetStyle，通过传入 primaryColor 即可动态 换 ant 得 primaryColor
+
+# 关于 moment
+
+由于 moment 过大，去掉 moment 使用 Day 插件

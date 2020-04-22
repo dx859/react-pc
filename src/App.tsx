@@ -1,17 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
+
 import { Button } from 'antd';
-import AntResetStyle from './components/AntResetStyle';
+import AppResetStyle from './contains/AppResetStyle';
 
 function App() {
-  const [color, setColor] = useState('#FF5F00');
   return (
     <>
-      <AntResetStyle primaryColor={color} />
-      <input
-        type="color"
-        value={color}
-        onChange={(e) => setColor(e.target.value)}
-      />
+      <AppResetStyle />
       <Button type="primary">按钮</Button>
     </>
   );
