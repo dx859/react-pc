@@ -31,6 +31,7 @@ function main() {
   for (let i = 0; i < 10; i++) {
     colorF.push(blue[i]);
   }
+  colorF.push('24, 144, 255');
 
   const colorReg = new RegExp('(' + colorF.join('|') + ')');
   const resetObj = {};
