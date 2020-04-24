@@ -1,7 +1,7 @@
 import React from 'react';
 import { generate, blue } from '@ant-design/colors';
 import styleString from './antResetStyle';
-import { hexToRgb } from '../../utils/colorUtils';
+import { hexToRgb } from '@/utils/colorUtils';
 
 interface AntResetStyleProps {
   primaryColor?: string;
